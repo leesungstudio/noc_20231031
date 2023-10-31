@@ -24,7 +24,7 @@ class Particle {
         this.position.add(this.velocity);
         this.lifespan -= 4  ; // 알파값 줄어짐
         this.size += 2;
-        this.col  = noise(ax);
+        this.col  = 300*noise(ax / 10);
         print( this.col );
         this.acceleration = createVector(0, 0); //가속도 초기화
     }
@@ -33,7 +33,7 @@ class Particle {
     display() {
         noStroke();
         
-        fill(this.col, this.lifespan);
+        fill(this.col,100 - this.col,200 - this.col, this.lifespan);
         ellipse(this.position.x, this.position.y, this.size, this.size);
     }
 
